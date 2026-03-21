@@ -269,19 +269,22 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <!-- 替换为视频，保持静音、自动循环、无控制栏，和页面视觉统一 -->
+      <!-- 修复后的视频标签：补充兼容性属性+错误修正+备用文本 -->
       <video 
         autoplay 
         muted 
         loop 
         playsinline
         preload="metadata"
-        style="width: 100%; height: auto; border-radius: 8px;"
-        alt="Teaser video">
-        <source src="static/videos/finallongvideo.mp4" type="video/mp4">
-        <!-- 备用格式，可选 -->
-        <source src="static/videos/teaser_video.webm" type="video/webm">
-        Your browser does not support the video tag.
+        style="width: 100%; height: auto; border-radius: 8px; display: block;"
+        alt="Teaser video"
+        controls="false"
+        poster="static/images/teaser_poster.png"> <!-- 建议添加海报图作为备用 -->
+        <source src="static/videos/teaser_ouput2.mp4" type="video/mp4">
+        <!-- 备用格式（可选，提升兼容性） -->
+        <source src="static/videos/teaser_ouput2.webm" type="video/webm">
+        <!-- 纯文本备用方案（浏览器不支持video标签时显示） -->
+        Your browser does not support the video tag. Please update your browser or download the video <a href="static/videos/teaser_ouput2.mp4">here</a>.
       </video>
       <h2 class="subtitle has-text-centered" style="margin-top: 20px;">
         Our method captures the source video's temporal structure to guide editing, preserving the original narrative, rhythm, and semantic flow while achieving accurate text-guided modification.
