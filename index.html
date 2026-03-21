@@ -269,16 +269,22 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <!-- 替换为视频，保持静音、自动循环、无控制栏，和页面视觉统一 -->
+      <!-- 修复后的视频标签：补充兼容性属性+错误修正+备用文本 -->
       <video 
         autoplay 
         muted 
         loop 
         playsinline
         preload="metadata"
-        style="width: 100%; height: auto; border-radius: 8px;"
-        alt="Teaser video">
-        <source src=".mp4" type="video/mp4">
+        style="width: 100%; height: auto; border-radius: 8px; display: block;"
+        alt="Teaser video"
+        controls="false"
+        poster="static/images/teaser_poster.png"> <!-- 建议添加海报图作为备用 -->
+        <source src="static/videos/teaser_output2.mp4" type="video/mp4">
+        <!-- 备用格式（可选，提升兼容性） -->
+        <source src="static/videos/teaser_ouput2.webm" type="video/webm">
+        <!-- 纯文本备用方案（浏览器不支持video标签时显示） -->
+        Your browser does not support the video tag. Please update your browser or download the video <a href="static/videos/teaser_ouput2.mp4">here</a>.
       </video>
       <h2 class="subtitle has-text-centered" style="margin-top: 20px;">
         Our method captures the source video's temporal structure to guide editing, preserving the original narrative, rhythm, and semantic flow while achieving accurate text-guided modification.
@@ -331,6 +337,10 @@
       <hr>
       <h2>TSPVE Editing Results</h2>
       <hr>
+    </div>
+    <!-- 补充说明与链接 -->
+    <div class="supplementary-link">
+      For more results please see the supplementary material: <a href="static/pdfs/supplementary.pdf" target="_blank">Supplementary</a>
     </div>
 
     <!-- 第一行结果：打字人物场景 -->
@@ -490,7 +500,7 @@
       <!-- 编辑结果1 -->
       <div class="column is-3">
         <div class="result-card">
-          <div class="card-title">"Autumn style"</div>
+          <div class="card-title">"Autumn Trees"</div>
           <video 
             poster="static/images/result_white_cupcake_poster.png" 
             controls 
@@ -506,7 +516,7 @@
       <!-- 编辑结果2 -->
       <div class="column is-3">
         <div class="result-card">
-          <div class="card-title">"Cartoon Style"</div>
+          <div class="card-title">"Input Video"</div>
           <video 
             poster="static/images/result_crystal_cupcake_poster.png" 
             controls 
@@ -515,14 +525,14 @@
             autoplay 
             preload="metadata"
             class="card-media result-video">
-            <source src="static/videos/bikeours4-1.mp4" type="video/mp4">
+            <source src="static/videos/pandasource-1.mp4" type="video/mp4">
           </video>
         </div>
       </div>
       <!-- 编辑结果3 -->
       <div class="column is-3">
         <div class="result-card">
-          <div class="card-title">"xx"</div>
+          <div class="card-title">"Comic-style"</div>
           <video 
             poster="static/images/result_train_poster.png" 
             controls 
@@ -531,7 +541,7 @@
             autoplay 
             preload="metadata"
             class="card-media result-video">
-            <source src="static/videos/finallongvideo3-1.mp4" type="video/mp4">
+            <source src="static/videos/pandaours1.mp4" type="video/mp4">
           </video>
         </div>
       </div>
@@ -678,7 +688,7 @@
       <!-- 6. VidToMe [3] -->
       <div class="column is-12-mobile is-6-tablet">
         <div class="comparison-card">
-          <div class="card-title">VidToMe</div>
+          <div class="card-title">VidToMe [3]</div>
           <video 
             poster="static/images/comparison_car_vidtome_poster.png" 
             controls 
@@ -694,7 +704,7 @@
       <!-- 7. AdaFlow [4] -->
       <div class="column is-12-mobile is-6-tablet">
         <div class="comparison-card">
-          <div class="card-title">AdaFlow</div>
+          <div class="card-title">AdaFlow [4]</div>
           <video 
             poster="static/images/comparison_car_adaflow_poster.png" 
             controls 
@@ -710,7 +720,7 @@
       <!-- 8. Slicedit [5] -->
       <div class="column is-12-mobile is-6-tablet">
         <div class="comparison-card">
-          <div class="card-title">Slicedit</div>
+          <div class="card-title">Slicedit [5]</div>
           <video 
             poster="static/images/comparison_car_slicedit_poster.png" 
             controls 
@@ -858,7 +868,7 @@
           class="result-video">
           <source src="static/videos/packsource.mp4" type="video/mp4">
         </video>
-        <p class="has-text-centered" style="margin-top: 10px; font-weight: 500;">Input Video</p>
+        <p class="has-text-centered" style="margin-top: 10px; font-weight: 500;">Input Reference</p>
       </div>
 
 
@@ -930,6 +940,21 @@
 </section>
 <!-- End Experiment 2 -->
 
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
 
   </body>
   </html>
